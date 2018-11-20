@@ -4,40 +4,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BO
 {
-    public class BLL_Employe: IComparable<BLL_Employe>
+    public class BO_Employe:IComparable<BO_Employe>
     {
+        #region "Propriétés d'instance"
         public string Nom { get; set; }
         public int Deptno { get; set; }
         public string Job { get; set; }
         public decimal Salaire { get; set; }
+        #endregion "Propriétés d'instance"
 
-        public BLL_Employe(string nom, int deptno, string job, decimal salaire)
+        #region "Constructeurs"
+        public BO_Employe(string nom, int deptno, string job, decimal salaire)
         {
             this.Nom = nom.ToUpper();
             this.Deptno = deptno;
             this.Job = job.ToUpper();
             this.Salaire = salaire;
         }
-        public BLL_Employe(string nom, int deptno):this(nom,deptno,"SALESMAN",1250)
+        public BO_Employe(string nom, int deptno) : this(nom, deptno, "SALESMAN", 1250)
         {
 
         }
-        public BLL_Employe()
+        public BO_Employe()
         {
 
         }
+        #endregion "Constructeurs"
+
+        #region "Méthodes substituées"
         public override string ToString()
         {
             return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Deptno} ";
         }
+        #endregion "Méthodes substituées"
 
-        public int CompareTo(BLL_Employe other)
+        #region "Méthodes d'interface"
+        public int CompareTo(BO_Employe other)
         {
-            int resultat = this.Salaire.CompareTo(other.Salaire)*-1;
+            int resultat = this.Salaire.CompareTo(other.Salaire) * -1;
 
             return resultat != 0 ? resultat : this.Nom.CompareTo(other.Nom);
         }
+        #endregion "Méthodes d'interface"
+
     }
 }

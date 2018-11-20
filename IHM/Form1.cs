@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,26 +14,55 @@ namespace IHM
 {
     public partial class Form1 : Form
     {
+
+        public BLL_Departements ListeDept { get; private set; }
+
+        public BLL_Employes ListeEmployes { get; private set; }
         public Form1()
         {
             InitializeComponent();
+            this.ListeDept = new BLL_Departements();
+            this.ListeEmployes = new BLL_Employes();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBox1.Items.Clear();
-            BLL_ListeDepartements listeDept = new BLL_ListeDepartements();
+            this.RemplissageComboBox();
+            this.RemplissageDataGridView((int)comboBox1.SelectedValue);
 
-            foreach (BLL_Departement item in listeDept.Departements)
-            {
-                comboBox1.Items.Add(new { Nom = item.Dname, Numero = item.Deptno });
-            }
-            comboBox1.ValueMember = "Numero";
-            comboBox1.DisplayMember = "Nom";
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedValue != null)
+            {
+                if (comboBox1.SelectedValue is int)
+                {
+                    int dept = (int)comboBox1.SelectedValue;
+                    if (dept != 0)
+                        this.RemplissageDataGridView(dept);
+                }
+            }
+        }
+        private void RemplissageComboBox()
+        {
+            comboBox1.DataSource = this.ListeDept.Departements;
+            comboBox1.ValueMember = "Deptno";
+            comboBox1.DisplayMember = "Dname";
+        }
 
+        private void RemplissageDataGridView()
+        {
+            this.ListeEmployes = new BLL_Employes();
+            dataGridView1.DataSource = this.ListeEmployes.Employes;
+        }
+        private void RemplissageDataGridView(int dept)
+        {
+            this.ListeEmployes = new BLL_Employes(dept);
+            dataGridView1.DataSource = this.ListeEmployes.Employes;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RemplissageDataGridView();
         }
     }
 }

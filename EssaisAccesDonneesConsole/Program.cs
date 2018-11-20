@@ -13,9 +13,9 @@ namespace EssaisAccesDonneesConsole
     {
         static void Main(string[] args)
         {
-            BLL_ListeEmployes listeEmployes = new BLL_ListeEmployes();
+            BLL_Employes listeEmployes = new BLL_Employes();
             Console.WriteLine(listeEmployes);
-            BLL_ListeDepartements listeDept = new BLL_ListeDepartements();
+            BLL_Departements listeDept = new BLL_Departements();
             Console.WriteLine();
             Console.WriteLine(listeDept);
             int dept =-1;
@@ -33,10 +33,10 @@ namespace EssaisAccesDonneesConsole
 
             }
             
-            BLL_ListeEmployes listeEmplyeByDeptno = new BLL_ListeEmployes(dept);
+            BLL_Employes listeEmplyeByDeptno = new BLL_Employes(dept);
             
             Console.WriteLine(listeEmplyeByDeptno);
-            Console.WriteLine(BLL_ListeEmployes.NbEmployeParDept(dept));
+            //Console.WriteLine(BLL_Employes.NbEmployeParDept(dept));
            
 
             Console.ReadKey();

@@ -12,16 +12,12 @@ namespace DAL
     {
         public static DataTable GetAllDept()
         {
-            SqlCommand objSelectCommand = new SqlCommand();
+            SqlCommand objSelectCommand = Connection.CreateConnection();
 
-            SqlConnection cmd = new SqlConnection(Properties.Resources.ChaineConnection);
-            cmd.Open();
-            objSelectCommand.Connection = cmd;
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Dept";
             DataTable schemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
             objDataAdapter.Fill(schemaTable);
-            cmd.Close();
             return schemaTable;
         }
 

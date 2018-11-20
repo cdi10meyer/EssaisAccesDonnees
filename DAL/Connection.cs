@@ -11,9 +11,12 @@ namespace DAL
     {
         public static SqlConnection SqlConnection = new SqlConnection(Properties.Resources.ChaineConnection);
 
-        public static SqlConnection CreateConnection()
+        public static SqlCommand CreateConnection()
         {
-            return new SqlConnection(Properties.Resources.ChaineConnection);
+            SqlCommand objSelectCommand = new SqlCommand();
+            SqlConnection cmd = new SqlConnection(Properties.Resources.ChaineConnection);
+            objSelectCommand.Connection = cmd;
+            return objSelectCommand;
         }
         
     }

@@ -10,44 +10,43 @@ namespace DAL
 {
     public class DAL_Employe
     {
-        public static DataTable GetAllEmp()
+        public DataTable SchemaTable { get; set; }
+        public DAL_Employe()
         {
-            SqlCommand objSelectCommand = new SqlCommand();
+            SchemaTable=this.GetAllEmp();
+        }
 
-            SqlConnection cmd = new SqlConnection(Properties.Resources.ChaineConnection);
-            cmd.Open();
-            objSelectCommand.Connection = cmd;
-            objSelectCommand.Connection = cmd;
+        public DAL_Employe(int deptno)
+        {
+            SchemaTable = this.GetEmpByDeptno(deptno);
+        }
+        public DataTable GetAllEmp()
+        {
+            SqlCommand objSelectCommand = Connection.CreateConnection();
+            
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Emp";
             DataTable schemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
             objDataAdapter.Fill(schemaTable);
-            cmd.Close();
             return schemaTable;
         }
 
-        public static DataTable GetEmpByDeptno(int deptno)
+        public  DataTable GetEmpByDeptno(int deptno)
         {
-            SqlCommand objSelectCommand = new SqlCommand();
+            SqlCommand objSelectCommand = Connection.CreateConnection();
 
-            SqlConnection cmd = new SqlConnection(Properties.Resources.ChaineConnection);
-            cmd.Open();
-            objSelectCommand.Connection = cmd;
             objSelectCommand.CommandText = "dbo.P_OAI_GetEmpsByDeptno";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
             objSelectCommand.Parameters.AddWithValue("@DEPTNO", deptno);
             DataTable schemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
             objDataAdapter.Fill(schemaTable);
-            cmd.Close();
             return schemaTable;
         }
         public static int GetNbEmp(int deptno)
         {
-            SqlCommand objSelectCommand = new SqlCommand();
-            SqlConnection cmd = new SqlConnection(Properties.Resources.ChaineConnection);
-            cmd.Open();
-            objSelectCommand.Connection = cmd;
+            SqlCommand objSelectCommand = Connection.CreateConnection();
+
             objSelectCommand.CommandText = "dbo.P_OAI_GetNbEmp";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
             objSelectCommand.Parameters.AddWithValue("@DEPTNO", deptno);
@@ -56,8 +55,8 @@ namespace DAL
             objSelectCommand.Parameters.Add(ligne);
             SqlDataReader reader = objSelectCommand.ExecuteReader();
             int output = Convert.ToInt32(ligne.Value);
-            cmd.Close();
             return output;
         }
     }
 }
+

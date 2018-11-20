@@ -84,6 +84,10 @@
       <Project>{B58DBEB8-519C-457B-8968-AA90FB609F6F}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BO\BO.csproj">
+      <Project>{86D29A70-4E9D-4EC5-8738-49179AFE5C63}</Project>
+      <Name>BO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
