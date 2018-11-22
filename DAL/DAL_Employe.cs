@@ -22,7 +22,7 @@ namespace DAL
         }
         public DataTable GetAllEmp()
         {
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
             
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Emp";
             DataTable schemaTable = new DataTable();
@@ -33,7 +33,7 @@ namespace DAL
 
         public  DataTable GetEmpByDeptno(int deptno)
         {
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
 
             objSelectCommand.CommandText = "dbo.P_OAI_GetEmpsByDeptno";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
@@ -43,9 +43,21 @@ namespace DAL
             objDataAdapter.Fill(schemaTable);
             return schemaTable;
         }
+        public int UpdateEmp(int empno, string ename)
+        {
+            SqlCommand objUpdateCommand = DAL_Connection.CreateConnection();
+            objUpdateCommand.CommandText = "dbo.P_OAI_UpdateEmp";
+            objUpdateCommand.CommandType = CommandType.StoredProcedure;
+            objUpdateCommand.Parameters.AddWithValue("@EMPNO", empno);
+            objUpdateCommand.Parameters.AddWithValue("@ENAME", ename);
+            objUpdateCommand.Connection.Open();
+            int nbrLigne = objUpdateCommand.ExecuteNonQuery();
+            objUpdateCommand.Connection.Close();
+            return nbrLigne;
+        }
         public static int GetNbEmp(int deptno)
         {
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
 
             objSelectCommand.CommandText = "dbo.P_OAI_GetNbEmp";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
@@ -53,8 +65,10 @@ namespace DAL
             SqlParameter ligne = new SqlParameter("@NB", SqlDbType.Int);
             ligne.Direction = ParameterDirection.Output;
             objSelectCommand.Parameters.Add(ligne);
+            objSelectCommand.Connection.Open();
             SqlDataReader reader = objSelectCommand.ExecuteReader();
             int output = Convert.ToInt32(ligne.Value);
+            objSelectCommand.Connection.Close();
             return output;
         }
     }

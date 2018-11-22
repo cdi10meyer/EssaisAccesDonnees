@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
+    <Compile Include="DAL_Connection.cs" />
     <Compile Include="DAL_Departement.cs" />
     <Compile Include="DAL_Employe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

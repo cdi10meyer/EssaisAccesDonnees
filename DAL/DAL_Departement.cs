@@ -12,7 +12,7 @@ namespace DAL
     {
         public static DataTable GetAllDept()
         {
-            SqlCommand objSelectCommand = Connection.CreateConnection();
+            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
 
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Dept";
             DataTable schemaTable = new DataTable();

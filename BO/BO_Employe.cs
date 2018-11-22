@@ -9,6 +9,7 @@ namespace BO
     public class BO_Employe:IComparable<BO_Employe>
     {
         #region "Propriétés d'instance"
+        public int Empno { get; set; }
         public string Nom { get; set; }
         public int Deptno { get; set; }
         public string Job { get; set; }
@@ -16,17 +17,18 @@ namespace BO
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
-        public BO_Employe(string nom, int deptno, string job, decimal salaire)
+        public BO_Employe(int empno,string nom, int deptno, string job, decimal salaire)
         {
+            this.Empno = empno;
             this.Nom = nom.ToUpper();
             this.Deptno = deptno;
             this.Job = job.ToUpper();
             this.Salaire = salaire;
         }
-        public BO_Employe(string nom, int deptno) : this(nom, deptno, "SALESMAN", 1250)
-        {
+        //public BO_Employe(string nom, int deptno) : this(nom, deptno, "SALESMAN", 1250)
+        //{
 
-        }
+        //}
         public BO_Employe()
         {
 

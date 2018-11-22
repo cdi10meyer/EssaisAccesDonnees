@@ -48,8 +48,8 @@ namespace BLL
         public void GetEmpByDeptno(int deptno)
         {
 
-            DAL_Employe employes = new DAL_Employe();
-            DataTable schemaTable = employes.GetEmpByDeptno(deptno);
+            DAL_Employe employe = new DAL_Employe();
+            DataTable schemaTable = employe.GetEmpByDeptno(deptno);
 
             this.RemplirTable(schemaTable);
         }
@@ -57,13 +57,25 @@ namespace BLL
         {
             foreach (DataRow row in schemaTable.Rows)
             {
+                int empno = Convert.ToInt32(row["EMPNO"]);
                 string nom = row["ENAME"].ToString();
                 decimal salaire = Convert.ToDecimal(row["SAL"]);
                 int dept = Convert.ToInt32(row["DEPTNO"]);
                 string job = row["JOB"].ToString();
-                this.Employes.Add(new BO_Employe(nom, dept, job, salaire));
+                this.Employes.Add(new BO_Employe(empno, nom, dept, job, salaire));
 
             }
+        }
+
+        public int UpdateEmp(int empno, string ename)
+        {
+            DAL_Employe employe = new DAL_Employe();
+            return employe.UpdateEmp(empno, ename);
+        }
+
+        public static int GetNbEmp(int deptno)
+        {
+            return DAL_Employe.GetNbEmp(deptno);
         }
         #endregion "Méthodes propres à la classe"
     }
