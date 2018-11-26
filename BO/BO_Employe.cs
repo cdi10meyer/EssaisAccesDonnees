@@ -11,7 +11,8 @@ namespace BO
         #region "Propriétés d'instance"
         public int Empno { get; set; }
         public string Nom { get; set; }
-        public int Deptno { get; set; }
+        //public int Deptno { get; set; }
+        public BO_Departement Departement { get; set; }
         public string Job { get; set; }
         public decimal Salaire { get; set; }
         #endregion "Propriétés d'instance"
@@ -21,7 +22,8 @@ namespace BO
         {
             this.Empno = empno;
             this.Nom = nom.ToUpper();
-            this.Deptno = deptno;
+            this.Departement = new BO_Departement();
+            this.Departement.Deptno = deptno;
             this.Job = job.ToUpper();
             this.Salaire = salaire;
         }
@@ -38,7 +40,7 @@ namespace BO
         #region "Méthodes substituées"
         public override string ToString()
         {
-            return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Deptno} ";
+            return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Departement.Deptno} ";
         }
         #endregion "Méthodes substituées"
 

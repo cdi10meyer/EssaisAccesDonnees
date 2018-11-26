@@ -8,22 +8,50 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_Employe
+    public class DAL_OAI
     {
-        public DataTable SchemaTable { get; set; }
-        public DAL_Employe()
+        #region "Connection"
+        public static string SqlMessage;
+
+        public static SqlCommand CreateConnection()
         {
-            SchemaTable=this.GetAllEmp();
+            SqlCommand objSelectCommand = new SqlCommand();
+            try
+            {
+
+                SqlConnection cmd = new SqlConnection();
+                cmd.ConnectionString = Properties.Resources.ChaineConnection;
+                objSelectCommand.Connection = cmd;
+                SqlMessage = "Connection ok";
+                return objSelectCommand;
+            }
+            catch (SqlException e)
+            {
+                SqlMessage = e.Message;
+                return objSelectCommand;
+            }
+        }
+        #endregion "Connection"
+
+        #region "Departement"
+        public static DataTable GetAllDept()
+        {
+            SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
+
+            objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Dept";
+            DataTable schemaTable = new DataTable();
+            SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
+            objDataAdapter.Fill(schemaTable);
+            return schemaTable;
         }
 
-        public DAL_Employe(int deptno)
+        #endregion "Departement"
+
+        #region "Employes"
+        public static DataTable GetAllEmp()
         {
-            SchemaTable = this.GetEmpByDeptno(deptno);
-        }
-        public DataTable GetAllEmp()
-        {
-            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
-            
+            SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
+
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Emp";
             DataTable schemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
@@ -31,9 +59,9 @@ namespace DAL
             return schemaTable;
         }
 
-        public  DataTable GetEmpByDeptno(int deptno)
+        public static DataTable GetEmpByDeptno(int deptno)
         {
-            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
+            SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
 
             objSelectCommand.CommandText = "dbo.P_OAI_GetEmpsByDeptno";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
@@ -43,21 +71,21 @@ namespace DAL
             objDataAdapter.Fill(schemaTable);
             return schemaTable;
         }
-        public int UpdateEmp(int empno, string ename)
+        public static int UpdateEmp(int empno, string ename)
         {
-            SqlCommand objUpdateCommand = DAL_Connection.CreateConnection();
-            objUpdateCommand.CommandText = "dbo.P_OAI_UpdateEmp";
+            SqlCommand objUpdateCommand = CreateConnection();
+            objUpdateCommand.Connection.Open();
+            objUpdateCommand.CommandText = "P_OAI_UpdateEmp";
             objUpdateCommand.CommandType = CommandType.StoredProcedure;
             objUpdateCommand.Parameters.AddWithValue("@EMPNO", empno);
             objUpdateCommand.Parameters.AddWithValue("@ENAME", ename);
-            objUpdateCommand.Connection.Open();
-            int nbrLigne = objUpdateCommand.ExecuteNonQuery();
+            int requete = objUpdateCommand.ExecuteNonQuery();
             objUpdateCommand.Connection.Close();
-            return nbrLigne;
+            return requete;
         }
         public static int GetNbEmp(int deptno)
         {
-            SqlCommand objSelectCommand = DAL_Connection.CreateConnection();
+            SqlCommand objSelectCommand = CreateConnection();
 
             objSelectCommand.CommandText = "dbo.P_OAI_GetNbEmp";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
@@ -71,6 +99,7 @@ namespace DAL
             objSelectCommand.Connection.Close();
             return output;
         }
+
+        #endregion "Employes"
     }
 }
-

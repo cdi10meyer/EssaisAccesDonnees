@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class BO_ListEmployes
+    public class BO_ListeDepartements
     {
         #region "Propriétés d'instance"
-        public List<BO_Employe> Employes { get; set; }
+        public List<BO_Departement> Departements { get; set; }
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
-        public BO_ListEmployes()
+        public BO_ListeDepartements()
         {
-            Employes = new List<BO_Employe>();
+            Departements = new List<BO_Departement>();
         }
-       
         #endregion "Constructeurs"
     }
 }

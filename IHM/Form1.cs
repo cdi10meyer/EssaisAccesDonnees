@@ -14,18 +14,13 @@ namespace IHM
 {
     public partial class Form1 : Form
     {
-        #region "Propriétés d'instance"
-        public BLL_Departements ListeDept { get; private set; }
-
-        public BLL_Employes ListeEmployes { get; private set; }
-        #endregion "Propriétés d'instance"
+        private BO_Departement RecordedDept;
+        private BO_Employe RecordedEmploye;
 
         #region "Constructeurs"
         public Form1()
         {
             InitializeComponent();
-            this.ListeDept = new BLL_Departements();
-            this.ListeEmployes = new BLL_Employes();
         }
         #endregion "Constructeurs"
 
@@ -33,50 +28,64 @@ namespace IHM
         private void Form1_Load(object sender, EventArgs e)
         {
             this.RemplissageComboBox();
-            this.RemplissageDataGridView((int)comboBox1.SelectedValue);
+            if (comboBox1.SelectedValue != null && comboBox1.SelectedValue is int)
+            {
+                RecordedDept = BLL_OAI.GetDeptByDeptno((int)comboBox1.SelectedValue);
+            }
+            this.RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
 
-            label4.Text = BLL_Connection.SqlMessage;
+            label9.Text = $"";
 
         }
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void bindingSource2_CurrentItemChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedValue != null)
+            if (comboBox1.SelectedValue != null && comboBox1.SelectedValue is int)
             {
-                if (comboBox1.SelectedValue is int)
+                int deptno = (int)comboBox1.SelectedValue;
+                RecordedDept = BLL_OAI.GetDeptByDeptno(deptno);
+                if (deptno != 0)
                 {
-                    int dept = (int)comboBox1.SelectedValue;
-                    if (dept != 0)
-                    {
-                        this.RemplissageDataGridView(dept);
-                    }
+                    this.RemplissageDataGridView(deptno, dataGridView1);
+                    
                 }
+                
             }
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            RemplissageDataGridView();
+            RecordedDept = new BO_Departement();
+            RemplissageDataGridView(RecordedDept.Deptno,dataGridView1);
+            RecordedDept = null;
         }
-        //private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        //{
-        //    if (dataGridView1.CurrentRow != null)
-        //    {
-        //        DataGridViewRow employeSelectionne = dataGridView1.CurrentRow;
-        //        textBox2.Text = employeSelectionne.Cells["Nom"].Value.ToString();
-        //        textBox3.Text = employeSelectionne.Cells["Job"].Value.ToString();
-        //        textBox4.Text = employeSelectionne.Cells["Salaire"].Value.ToString();
-        //    }
-        //}
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e)
+        private void bindingSource1_CurrentItemChanged(object sender, EventArgs e)
         {
-            if(bindingSource1.Current!=null)
+            if (bindingSource1.Current != null)
             {
-                BO_Employe employeSelectionne = (BO_Employe)bindingSource1.Current;
-                BO_Departement departement = this.ListeDept.Departements.Find(x => x.Deptno == employeSelectionne.Deptno);
-                textBox1.Text = departement.Dname;
-                textBox2.Text = employeSelectionne.Nom;
-                textBox3.Text = employeSelectionne.Job;
-                textBox4.Text = employeSelectionne.Salaire.ToString();
+                RecordedEmploye = (BO_Employe)bindingSource1.Current;
+                textBox1.Text = RecordedEmploye.Departement.Dname;
+                textBox2.Text = RecordedEmploye.Nom;
+                textBox3.Text = RecordedEmploye.Job;
+                textBox4.Text = RecordedEmploye.Salaire.ToString();
+                textBox2.Enabled = true;
+                button2.Enabled = true;
+            }
+            else
+            {
+                RecordedEmploye = null;
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox2.Enabled = false;
+                button2.Enabled = false;
+                if (bindingSource2.Current != null)
+                {
+                    textBox1.Text = RecordedDept.Dname;
+                }
+                
             }
         }
 
@@ -84,13 +93,17 @@ namespace IHM
         {
             int resultat = 0;
             BO_Employe employeSelectionne = (BO_Employe)bindingSource1.Current;
-            if(textBox2.Text != employeSelectionne.Nom)
+            RecordedDept = employeSelectionne.Departement;
+            if (textBox2.Text != employeSelectionne.Nom)
             {
                 int empno = employeSelectionne.Empno;
                 string newEname = textBox2.Text.ToUpper();
-                resultat = ListeEmployes.UpdateEmp(empno, newEname);
-                label9.Text = $"{resultat} modification";
-                
+                resultat = BLL_OAI.UpdateEmp(empno, newEname);
+            }
+            label9.Text = $"{resultat} modification";
+            if (resultat != 0)
+            {
+                this.RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
             }
         }
         #endregion "Méthodes evenementielles"
@@ -98,40 +111,50 @@ namespace IHM
         #region "Méthodes propres à la classe"
         private void RemplissageComboBox()
         {
-            comboBox1.DataSource = this.ListeDept.Departements;
+            bindingSource2.DataSource = BLL_OAI.GetAllDept().Departements;
+            comboBox1.DataSource = bindingSource2;
+            //comboBox1.DataSource = BLL_OAI.GetAllDept().Departements;
             comboBox1.ValueMember = "Deptno";
             comboBox1.DisplayMember = "Dname";
         }
-        private void RemplissageDataGridView()
+        //private void RemplissageDataGridView(DataGridView datagridview)
+        //{
+        //    BO_ListeEmployes employes = BLL_OAI.GetAllEmp();
+        //    employes.Employes.Sort();
+        //    bindingSource1.DataSource = employes.Employes;
+        //    datagridview.DataSource = bindingSource1;
+        //    this.ModelingByDataGridView(datagridview);
+
+        //    label2.Text = $"TOUS";
+        //}
+        private void RemplissageDataGridView(int deptno, DataGridView datagridview)
         {
-            this.ListeEmployes = new BLL_Employes();
-            ListeEmployes.Employes.Sort();
-            bindingSource1.DataSource = this.ListeEmployes.Employes;
-            dataGridView1.DataSource = bindingSource1;
-            this.ModelingByDataGridView();
-            
-            label2.Text = $"TOUS";
-        }
-        private void RemplissageDataGridView(int dept)
-        {
-            this.ListeEmployes = new BLL_Employes(dept);
-            ListeEmployes.Employes.Sort();
-            bindingSource1.DataSource = this.ListeEmployes.Employes;
-            dataGridView1.DataSource = bindingSource1;
-            this.ModelingByDataGridView();
-            BO_Departement departement = this.ListeDept.Departements.Find(x => x.Deptno == dept);
-            label2.Text = $"{departement.Dname}";
+            BO_ListeEmployes employes;
+            if (deptno!=0)
+            {
+                employes = BLL_OAI.GetEmpByDeptno(deptno);
+                label2.Text = $"{BLL_OAI.GetDeptByDeptno(deptno).Dname}";
+            }
+            else
+            {
+                employes = BLL_OAI.GetAllEmp();
+                label2.Text = $"TOUS";
+            }
+            employes.Employes.Sort();
+            bindingSource1.DataSource = employes.Employes;
+            datagridview.DataSource = bindingSource1;
+            this.ModelingByDataGridView(datagridview);
         }
 
 
-        private void ModelingByDataGridView()
+        private void ModelingByDataGridView(DataGridView datagridview)
         {
-            dataGridView1.Columns.Remove(dataGridView1.Columns["Deptno"]);
-            label3.Text = $"Nbre employé(s): {this.ListeEmployes.Employes.Count}";
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            datagridview.Columns.Remove(dataGridView1.Columns["Departement"]);
+            label3.Text = $"Nbre employé(s): {datagridview.RowCount}";
+            datagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             int totalRowHeight = dataGridView1.ColumnHeadersHeight;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in datagridview.Rows)
             {
                 totalRowHeight += row.Height;
             }
@@ -139,11 +162,26 @@ namespace IHM
             dataGridView1.Height = totalRowHeight;
         }
 
+        //private void WhichDatasInDataGridView()
+        //{
+        //    if (RecordedDept != null)
+        //    {
+        //        this.RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
+
+        //    }
+        //    else
+        //    {
+        //        this.RemplissageDataGridView(dataGridView1);
+        //    }
+        //}
+
+
+
 
 
         #endregion "Méthodes propres à la classe"
 
-      
+
     }
 
 }
