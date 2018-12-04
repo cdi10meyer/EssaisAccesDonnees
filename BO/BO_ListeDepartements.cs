@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class BO_ListeDepartements
+    public class BO_ListeDepartements: Consommable
     {
         #region "Propriétés d'instance"
         public List<BO_Departement> Departements { get; set; }

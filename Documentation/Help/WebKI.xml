@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="BO espace de nom" Url="html/a9816730-be69-d2c9-a6a2-d80371973f70.htm" />
+  <HelpKINode Title="BO.BO_Departement classe" Url="html/b09b7b3f-d43c-8031-e69e-ab9e37a28442.htm" />
+  <HelpKINode Title="BO.BO_Employe classe" Url="html/82c6fb44-8c3e-a4ad-effc-f79767fc5483.htm" />
+  <HelpKINode Title="BO.BO_ListeDepartements classe" Url="html/eb6e811d-fc82-019e-87d3-87e66b13e528.htm" />
+  <HelpKINode Title="BO.BO_ListeEmployes classe" Url="html/771c6cad-1b25-1184-c0a4-b7c9d736075f.htm" />
+  <HelpKINode Title="BO.BO_Nombre classe" Url="html/05300763-4fec-0e86-7a14-7ae9c8afd322.htm" />
+  <HelpKINode Title="BO.Consommable classe" Url="html/03c3ebed-73ab-8636-7e8a-f269c6981caa.htm" />
+  <HelpKINode Title="BO_Departement classe">
+    <HelpKINode Title="BO_Departement Classe" Url="html/b09b7b3f-d43c-8031-e69e-ab9e37a28442.htm" />
+    <HelpKINode Title="constructeur" Url="html/0c22a24c-8150-ec3f-a793-3416f887bbee.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/dc9b83ea-cd8b-4c48-0361-cb58f5a52d13.htm" />
+    <HelpKINode Title="propri&#233;t&#233;s" Url="html/2a20c7c7-f2e9-df88-9533-3f45cc9950f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BO_Departement.BO_Departement constructeur" Url="html/0c22a24c-8150-ec3f-a793-3416f887bbee.htm" />
+  <HelpKINode Title="BO_Departement.Deptno propri&#233;t&#233;" Url="html/abbe0110-e192-4bea-fc5e-c97c0a3dc1db.htm" />
+  <HelpKINode Title="BO_Departement.Dname propri&#233;t&#233;" Url="html/0ab88af3-c1f7-8405-e2be-254348585347.htm" />
+  <HelpKINode Title="BO_Departement.Loc propri&#233;t&#233;" Url="html/9d993d61-e3ec-69d2-66ca-f7b8cfec7fdf.htm" />
+  <HelpKINode Title="BO_Departement.ToString m&#233;thode" Url="html/57115d4e-4232-801e-a120-c2866a1d2040.htm" />
+  <HelpKINode Title="BO_Employe classe">
+    <HelpKINode Title="BO_Employe Classe" Url="html/82c6fb44-8c3e-a4ad-effc-f79767fc5483.htm" />
+    <HelpKINode Title="constructeur" Url="html/da8c15b8-a5bb-13c5-cdb4-87ef8c967912.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/43e7e406-cac5-2708-cbfd-9bca697d3f97.htm" />
+    <HelpKINode Title="propri&#233;t&#233;s" Url="html/5fe9d830-c802-5cb1-1dc1-946f3e5cc407.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BO_Employe.BO_Employe constructeur" Url="html/da8c15b8-a5bb-13c5-cdb4-87ef8c967912.htm" />
+  <HelpKINode Title="BO_Employe.CompareTo m&#233;thode" Url="html/85bb062e-c0ae-58fc-9adc-e65c65c29050.htm" />
+  <HelpKINode Title="BO_Employe.Departement propri&#233;t&#233;" Url="html/ac985c32-7327-14ee-9e0e-e447318d8cea.htm" />
+  <HelpKINode Title="BO_Employe.Empno propri&#233;t&#233;" Url="html/6f8e5016-ed05-1549-095a-24910b6a2668.htm" />
+  <HelpKINode Title="BO_Employe.Job propri&#233;t&#233;" Url="html/e9a93d26-070e-5327-61aa-4b630447152e.htm" />
+  <HelpKINode Title="BO_Employe.Nom propri&#233;t&#233;" Url="html/aec61167-b952-26b0-3306-2e419405ea77.htm" />
+  <HelpKINode Title="BO_Employe.Salaire propri&#233;t&#233;" Url="html/eb4468e7-e3be-6436-2752-d830c97a147b.htm" />
+  <HelpKINode Title="BO_Employe.ToString m&#233;thode" Url="html/d8a0f1b1-df13-4599-6889-8a7c4256f2ee.htm" />
+  <HelpKINode Title="BO_ListeDepartements classe">
+    <HelpKINode Title="BO_ListeDepartements Classe" Url="html/eb6e811d-fc82-019e-87d3-87e66b13e528.htm" />
+    <HelpKINode Title="constructeur" Url="html/de305dab-ce39-cc9f-916e-07e408dd1aa6.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/8b231e27-3043-6c6f-bbcd-c6632cc2afbd.htm" />
+    <HelpKINode Title="propri&#233;t&#233;s" Url="html/29e55605-668b-70fe-5225-5421907e8437.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BO_ListeDepartements.BO_ListeDepartements constructeur" Url="html/de305dab-ce39-cc9f-916e-07e408dd1aa6.htm" />
+  <HelpKINode Title="BO_ListeDepartements.Departements propri&#233;t&#233;" Url="html/458fdbb0-173f-ae9e-1fd9-c8a20357ed88.htm" />
+  <HelpKINode Title="BO_ListeEmployes classe">
+    <HelpKINode Title="BO_ListeEmployes Classe" Url="html/771c6cad-1b25-1184-c0a4-b7c9d736075f.htm" />
+    <HelpKINode Title="constructeur" Url="html/800349e6-22e1-78e6-8ab6-9257ff985e86.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/3e22f3cc-c333-49f3-d544-4d1d2322754c.htm" />
+    <HelpKINode Title="propri&#233;t&#233;s" Url="html/c417d65f-6d31-5f99-edee-3f3954f715de.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BO_ListeEmployes.BO_ListeEmployes constructeur" Url="html/800349e6-22e1-78e6-8ab6-9257ff985e86.htm" />
+  <HelpKINode Title="BO_ListeEmployes.Employes propri&#233;t&#233;" Url="html/4be4e3ee-b497-cf15-f976-f01a5f2d723a.htm" />
+  <HelpKINode Title="BO_Nombre classe">
+    <HelpKINode Title="BO_Nombre Classe" Url="html/05300763-4fec-0e86-7a14-7ae9c8afd322.htm" />
+    <HelpKINode Title="constructeur" Url="html/716fcd2d-8f9f-dbae-7d05-17a08ebd251b.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/bc9a6699-a0b9-ecab-3804-be0fc237aa47.htm" />
+    <HelpKINode Title="propri&#233;t&#233;s" Url="html/15698062-7e2f-b19b-736d-94d417f3f32d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BO_Nombre.BO_Nombre constructeur" Url="html/716fcd2d-8f9f-dbae-7d05-17a08ebd251b.htm" />
+  <HelpKINode Title="BO_Nombre.Nombre propri&#233;t&#233;" Url="html/1f92788a-e38a-f8bd-14a4-3bf908139313.htm" />
+  <HelpKINode Title="CompareTo m&#233;thode" Url="html/85bb062e-c0ae-58fc-9adc-e65c65c29050.htm" />
+  <HelpKINode Title="Consommable classe">
+    <HelpKINode Title="Consommable Classe" Url="html/03c3ebed-73ab-8636-7e8a-f269c6981caa.htm" />
+    <HelpKINode Title="constructeur" Url="html/88a2314d-1b3f-7eb2-3005-54b156cfb1d3.htm" />
+    <HelpKINode Title="m&#233;thodes" Url="html/920d481e-60da-baf6-0afa-30a8d2ef1d64.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Consommable.Consommable constructeur" Url="html/88a2314d-1b3f-7eb2-3005-54b156cfb1d3.htm" />
+  <HelpKINode Title="Departement propri&#233;t&#233;" Url="html/ac985c32-7327-14ee-9e0e-e447318d8cea.htm" />
+  <HelpKINode Title="Departements propri&#233;t&#233;" Url="html/458fdbb0-173f-ae9e-1fd9-c8a20357ed88.htm" />
+  <HelpKINode Title="Deptno propri&#233;t&#233;" Url="html/abbe0110-e192-4bea-fc5e-c97c0a3dc1db.htm" />
+  <HelpKINode Title="Dname propri&#233;t&#233;" Url="html/0ab88af3-c1f7-8405-e2be-254348585347.htm" />
+  <HelpKINode Title="Employes propri&#233;t&#233;" Url="html/4be4e3ee-b497-cf15-f976-f01a5f2d723a.htm" />
+  <HelpKINode Title="Empno propri&#233;t&#233;" Url="html/6f8e5016-ed05-1549-095a-24910b6a2668.htm" />
+  <HelpKINode Title="Job propri&#233;t&#233;" Url="html/e9a93d26-070e-5327-61aa-4b630447152e.htm" />
+  <HelpKINode Title="Loc propri&#233;t&#233;" Url="html/9d993d61-e3ec-69d2-66ca-f7b8cfec7fdf.htm" />
+  <HelpKINode Title="Nom propri&#233;t&#233;" Url="html/aec61167-b952-26b0-3306-2e419405ea77.htm" />
+  <HelpKINode Title="Nombre propri&#233;t&#233;" Url="html/1f92788a-e38a-f8bd-14a4-3bf908139313.htm" />
+  <HelpKINode Title="Salaire propri&#233;t&#233;" Url="html/eb4468e7-e3be-6436-2752-d830c97a147b.htm" />
+  <HelpKINode Title="ToString m&#233;thode">
+    <HelpKINode Title="BO_Departement.ToString M&#233;thode " Url="html/57115d4e-4232-801e-a120-c2866a1d2040.htm" />
+    <HelpKINode Title="BO_Employe.ToString M&#233;thode " Url="html/d8a0f1b1-df13-4599-6889-8a7c4256f2ee.htm" />
+  </HelpKINode>
+  <HelpKINode Title="version">
+    <HelpKINode Title="1.0.0.0" Url="html/5c1a5052-5f23-4ab6-9258-491bd32e82bd.htm" />
+    <HelpKINode Title="history" Url="html/87623c8f-e585-4019-a77a-862ee5db474a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Welcome" Url="html/caf370ee-4ae5-458e-aa62-1a15de78e1e1.htm" />
+</HelpKI>

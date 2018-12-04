@@ -6,18 +6,51 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class BO_Employe:IComparable<BO_Employe>
+    /// <summary>
+    /// 
+    /// </summary>
+    public class BO_Employe: Consommable, IComparable<BO_Employe>
     {
         #region "Propriétés d'instance"
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
         public int Empno { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// 
         public string Nom { get; set; }
-        //public int Deptno { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public BO_Departement Departement { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Job { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public decimal Salaire { get; set; }
+
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="empno"></param>
+        /// <param name="nom"></param>
+        /// <param name="deptno"></param>
+        /// <param name="job"></param>
+        /// <param name="salaire"></param>
         public BO_Employe(int empno,string nom, int deptno, string job, decimal salaire)
         {
             this.Empno = empno;
@@ -27,10 +60,9 @@ namespace BO
             this.Job = job.ToUpper();
             this.Salaire = salaire;
         }
-        //public BO_Employe(string nom, int deptno) : this(nom, deptno, "SALESMAN", 1250)
-        //{
-
-        //}
+        /// <summary>
+        /// 
+        /// </summary>
         public BO_Employe()
         {
 
@@ -38,6 +70,10 @@ namespace BO
         #endregion "Constructeurs"
 
         #region "Méthodes substituées"
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Departement.Deptno} ";
@@ -45,6 +81,11 @@ namespace BO
         #endregion "Méthodes substituées"
 
         #region "Méthodes d'interface"
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public int CompareTo(BO_Employe other)
         {
             int resultat = this.Salaire.CompareTo(other.Salaire) * -1;

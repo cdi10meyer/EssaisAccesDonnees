@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
 {
+    [DataContract]
     public class DAL_OAI
     {
+        [DataMember]
+        public DataTable SchemaTable { get; set; }
         #region "Connection"
-        public static string SqlMessage;
+        public static string SqlMessage = "Connection ok";
 
         public static SqlCommand CreateConnection()
         {
             SqlCommand objSelectCommand = new SqlCommand();
             try
             {
-
                 SqlConnection cmd = new SqlConnection();
                 cmd.ConnectionString = Properties.Resources.ChaineConnection;
                 objSelectCommand.Connection = cmd;
@@ -34,44 +37,44 @@ namespace DAL
         #endregion "Connection"
 
         #region "Departement"
-        public static DataTable GetAllDept()
+        public DataTable GetAllDept()
         {
             SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
 
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Dept";
-            DataTable schemaTable = new DataTable();
+            SchemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(schemaTable);
-            return schemaTable;
+            objDataAdapter.Fill(SchemaTable);
+            return SchemaTable;
         }
 
         #endregion "Departement"
 
         #region "Employes"
-        public static DataTable GetAllEmp()
+        public DataTable GetAllEmp()
         {
             SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
 
             objSelectCommand.CommandText = "SELECT * FROM dbo.T_OAI_Emp";
-            DataTable schemaTable = new DataTable();
+            SchemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(schemaTable);
-            return schemaTable;
+            objDataAdapter.Fill(SchemaTable);
+            return SchemaTable;
         }
 
-        public static DataTable GetEmpByDeptno(int deptno)
+        public DataTable GetEmpByDeptno(int deptno)
         {
             SqlCommand objSelectCommand = DAL_OAI.CreateConnection();
 
             objSelectCommand.CommandText = "dbo.P_OAI_GetEmpsByDeptno";
             objSelectCommand.CommandType = CommandType.StoredProcedure;
             objSelectCommand.Parameters.AddWithValue("@DEPTNO", deptno);
-            DataTable schemaTable = new DataTable();
+            SchemaTable = new DataTable();
             SqlDataAdapter objDataAdapter = new SqlDataAdapter(objSelectCommand);
-            objDataAdapter.Fill(schemaTable);
-            return schemaTable;
+            objDataAdapter.Fill(SchemaTable);
+            return SchemaTable;
         }
-        public static int UpdateEmp(int empno, string ename)
+        public int UpdateEmp(int empno, string ename)
         {
             SqlCommand objUpdateCommand = CreateConnection();
             objUpdateCommand.Connection.Open();
@@ -83,7 +86,7 @@ namespace DAL
             objUpdateCommand.Connection.Close();
             return requete;
         }
-        public static int GetNbEmp(int deptno)
+        public int GetNbEmp(int deptno)
         {
             SqlCommand objSelectCommand = CreateConnection();
 

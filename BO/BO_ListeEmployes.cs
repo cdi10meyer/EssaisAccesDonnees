@@ -6,13 +6,22 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class BO_ListeEmployes
+    /// <summary>
+    /// 
+    /// </summary>
+    public class BO_ListeEmployes:Consommable
     {
         #region "Propriétés d'instance"
+        /// <summary>
+        /// 
+        /// </summary>
         public List<BO_Employe> Employes { get; set; }
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
+        /// <summary>
+        /// 
+        /// </summary>
         public BO_ListeEmployes()
         {
             Employes = new List<BO_Employe>();
