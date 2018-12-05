@@ -16,7 +16,7 @@ namespace DAL
         public DataTable SchemaTable { get; set; }
         #region "Connection"
         public static string SqlMessage = "Connection ok";
-
+        
         public static SqlCommand CreateConnection()
         {
             SqlCommand objSelectCommand = new SqlCommand();
@@ -61,7 +61,7 @@ namespace DAL
             objDataAdapter.Fill(SchemaTable);
             return SchemaTable;
         }
-
+        
         public DataTable GetEmpByDeptno(int deptno)
         {
             SqlCommand objSelectCommand = DAL_OAI.CreateConnection();

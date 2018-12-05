@@ -2,63 +2,68 @@
 <HelpTOC>
 
   <HelpTOCNode Title="Welcome to the [TODO: Add project name]" Url="html/caf370ee-4ae5-458e-aa62-1a15de78e1e1.htm" />
-  <HelpTOCNode Id="be68bf58-f97b-4d7f-ae77-dd9e85634469" Title="Version History" Url="html/87623c8f-e585-4019-a77a-862ee5db474a.htm">
+  <HelpTOCNode Id="de5f58bc-afbd-40d4-b0d6-18546951e7e8" Title="Version History" Url="html/87623c8f-e585-4019-a77a-862ee5db474a.htm">
     <HelpTOCNode Title="Version 1.0.0.0" Url="html/5c1a5052-5f23-4ab6-9258-491bd32e82bd.htm" />
   </HelpTOCNode>
-  <HelpTOCNode Id="ec78008f-1f1f-4f82-9700-24b94c651d62" Title="BO" Url="html/a9816730-be69-d2c9-a6a2-d80371973f70.htm">
-    <HelpTOCNode Id="11e90e40-fba7-484f-9f31-c78fc74b721e" Title="BO_Departement Classe" Url="html/b09b7b3f-d43c-8031-e69e-ab9e37a28442.htm">
-      <HelpTOCNode Id="ebf3c14d-107d-43b2-93a8-669cdcde0e28" Title="BO_Departement Constructeur " Url="html/0c22a24c-8150-ec3f-a793-3416f887bbee.htm">
+  <HelpTOCNode Id="f670c1ec-8891-48d9-bdcf-a32131048bca" Title="BO" Url="html/a9816730-be69-d2c9-a6a2-d80371973f70.htm">
+    <HelpTOCNode Id="ad680f27-b11d-46ec-9df0-a11fc455a236" Title="BO_Departement Classe" Url="html/b09b7b3f-d43c-8031-e69e-ab9e37a28442.htm">
+      <HelpTOCNode Id="31867195-cdb2-42cb-94db-10c0012f5531" Title="BO_Departement Constructeur " Url="html/0c22a24c-8150-ec3f-a793-3416f887bbee.htm">
         <HelpTOCNode Title="BO_Departement Constructeur " Url="html/c44ffc2f-aeb1-554f-9c1a-3042de0fcc2c.htm" />
         <HelpTOCNode Title="BO_Departement Constructeur (Int32, String, String)" Url="html/c544901d-ae54-4f32-9a53-f52a5e0854fe.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="4e32dae9-b58a-47b8-ace0-6071a98e41bc" Title="BO_Departement Propri&#233;t&#233;s" Url="html/2a20c7c7-f2e9-df88-9533-3f45cc9950f7.htm">
+      <HelpTOCNode Id="20516879-57a6-4bc0-99eb-9f485119e777" Title="BO_Departement Propri&#233;t&#233;s" Url="html/2a20c7c7-f2e9-df88-9533-3f45cc9950f7.htm">
         <HelpTOCNode Title="Deptno Propri&#233;t&#233; " Url="html/abbe0110-e192-4bea-fc5e-c97c0a3dc1db.htm" />
         <HelpTOCNode Title="Dname Propri&#233;t&#233; " Url="html/0ab88af3-c1f7-8405-e2be-254348585347.htm" />
+        <HelpTOCNode Title="Employes Propri&#233;t&#233; " Url="html/3889042f-b120-7b21-cead-7faabd5c6524.htm" />
         <HelpTOCNode Title="Loc Propri&#233;t&#233; " Url="html/9d993d61-e3ec-69d2-66ca-f7b8cfec7fdf.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="05191ab7-bd43-4069-a994-91757e894052" Title="BO_Departement M&#233;thodes" Url="html/dc9b83ea-cd8b-4c48-0361-cb58f5a52d13.htm">
+      <HelpTOCNode Id="16f49a70-1f74-4e07-99a1-57f77cf58a4a" Title="BO_Departement M&#233;thodes" Url="html/dc9b83ea-cd8b-4c48-0361-cb58f5a52d13.htm">
+        <HelpTOCNode Title="CreateListeEmploye M&#233;thode " Url="html/7b6ee557-c02a-d20b-47cd-1d9c6178b79c.htm" />
         <HelpTOCNode Title="ToString M&#233;thode " Url="html/57115d4e-4232-801e-a120-c2866a1d2040.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="8187cf15-cc64-4c30-917e-c5d1f25738b7" Title="BO_Employe Classe" Url="html/82c6fb44-8c3e-a4ad-effc-f79767fc5483.htm">
-      <HelpTOCNode Id="b65e5812-e50e-4d17-9bdc-f6a65cdb7754" Title="BO_Employe Constructeur " Url="html/da8c15b8-a5bb-13c5-cdb4-87ef8c967912.htm">
+    <HelpTOCNode Id="9c580670-6c6a-4478-b083-5375ca49bcb5" Title="BO_Employe Classe" Url="html/82c6fb44-8c3e-a4ad-effc-f79767fc5483.htm">
+      <HelpTOCNode Id="aa384670-9680-4a4c-8906-a4fecc2d5b82" Title="BO_Employe Constructeur " Url="html/da8c15b8-a5bb-13c5-cdb4-87ef8c967912.htm">
         <HelpTOCNode Title="BO_Employe Constructeur " Url="html/697fe815-02bd-e976-0d14-e1c2601beda2.htm" />
         <HelpTOCNode Title="BO_Employe Constructeur (Int32, String, Int32, String, Decimal)" Url="html/59cc6dd4-8b03-de40-bab8-122b4e879593.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="2cf3dd52-2abc-45ec-8898-efad2279a463" Title="BO_Employe Propri&#233;t&#233;s" Url="html/5fe9d830-c802-5cb1-1dc1-946f3e5cc407.htm">
-        <HelpTOCNode Title="Departement Propri&#233;t&#233; " Url="html/ac985c32-7327-14ee-9e0e-e447318d8cea.htm" />
+      <HelpTOCNode Id="4adaf82a-6880-4238-8e57-ed07f2581967" Title="BO_Employe Propri&#233;t&#233;s" Url="html/5fe9d830-c802-5cb1-1dc1-946f3e5cc407.htm">
+        <HelpTOCNode Title="Deptno Propri&#233;t&#233; " Url="html/0fd99012-c623-85fc-705e-dbb05a3ca0da.htm" />
         <HelpTOCNode Title="Empno Propri&#233;t&#233; " Url="html/6f8e5016-ed05-1549-095a-24910b6a2668.htm" />
         <HelpTOCNode Title="Job Propri&#233;t&#233; " Url="html/e9a93d26-070e-5327-61aa-4b630447152e.htm" />
         <HelpTOCNode Title="Nom Propri&#233;t&#233; " Url="html/aec61167-b952-26b0-3306-2e419405ea77.htm" />
         <HelpTOCNode Title="Salaire Propri&#233;t&#233; " Url="html/eb4468e7-e3be-6436-2752-d830c97a147b.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="73d67e87-4bb2-42f5-b976-14e334e81bf8" Title="BO_Employe M&#233;thodes" Url="html/43e7e406-cac5-2708-cbfd-9bca697d3f97.htm">
+      <HelpTOCNode Id="8431bff8-a22c-477b-9d57-f093458917a6" Title="BO_Employe M&#233;thodes" Url="html/43e7e406-cac5-2708-cbfd-9bca697d3f97.htm">
         <HelpTOCNode Title="CompareTo M&#233;thode " Url="html/85bb062e-c0ae-58fc-9adc-e65c65c29050.htm" />
         <HelpTOCNode Title="ToString M&#233;thode " Url="html/d8a0f1b1-df13-4599-6889-8a7c4256f2ee.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="7a877084-c325-4437-86dd-3acaed53332a" Title="BO_ListeDepartements Classe" Url="html/eb6e811d-fc82-019e-87d3-87e66b13e528.htm">
+    <HelpTOCNode Id="c1638072-441c-495f-bf79-3f43ed34b07f" Title="BO_ListeDepartements Classe" Url="html/eb6e811d-fc82-019e-87d3-87e66b13e528.htm">
       <HelpTOCNode Title="BO_ListeDepartements Constructeur " Url="html/de305dab-ce39-cc9f-916e-07e408dd1aa6.htm" />
-      <HelpTOCNode Id="27685eb4-049c-4cd9-ad0b-b4ab9020ed7c" Title="BO_ListeDepartements Propri&#233;t&#233;s" Url="html/29e55605-668b-70fe-5225-5421907e8437.htm">
+      <HelpTOCNode Id="6d7c7aa8-172d-4bdc-9790-17a3ee804fcc" Title="BO_ListeDepartements Propri&#233;t&#233;s" Url="html/29e55605-668b-70fe-5225-5421907e8437.htm">
         <HelpTOCNode Title="Departements Propri&#233;t&#233; " Url="html/458fdbb0-173f-ae9e-1fd9-c8a20357ed88.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="BO_ListeDepartements M&#233;thodes" Url="html/8b231e27-3043-6c6f-bbcd-c6632cc2afbd.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="82e2bdba-7d22-4170-91ab-011f5dfa7b20" Title="BO_ListeEmployes Classe" Url="html/771c6cad-1b25-1184-c0a4-b7c9d736075f.htm">
-      <HelpTOCNode Title="BO_ListeEmployes Constructeur " Url="html/800349e6-22e1-78e6-8ab6-9257ff985e86.htm" />
-      <HelpTOCNode Id="40ac16eb-2f71-4cc5-87b1-d7be7264d12f" Title="BO_ListeEmployes Propri&#233;t&#233;s" Url="html/c417d65f-6d31-5f99-edee-3f3954f715de.htm">
+    <HelpTOCNode Id="48f8f239-eda7-4094-8b91-493cffa62125" Title="BO_ListeEmployes Classe" Url="html/771c6cad-1b25-1184-c0a4-b7c9d736075f.htm">
+      <HelpTOCNode Id="69991bcd-fd76-460c-a48e-4fc4a9ffd1e8" Title="BO_ListeEmployes Constructeur " Url="html/6649377c-9f8a-8eb1-cecc-231fc9e12335.htm">
+        <HelpTOCNode Title="BO_ListeEmployes Constructeur " Url="html/800349e6-22e1-78e6-8ab6-9257ff985e86.htm" />
+        <HelpTOCNode Title="BO_ListeEmployes Constructeur (Int32)" Url="html/187bb690-7861-72e9-e5d0-cb3c42709a1f.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="f86c53aa-2772-4d43-9441-1ef95b1dd3c5" Title="BO_ListeEmployes Propri&#233;t&#233;s" Url="html/c417d65f-6d31-5f99-edee-3f3954f715de.htm">
         <HelpTOCNode Title="Employes Propri&#233;t&#233; " Url="html/4be4e3ee-b497-cf15-f976-f01a5f2d723a.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="BO_ListeEmployes M&#233;thodes" Url="html/3e22f3cc-c333-49f3-d544-4d1d2322754c.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="457b2dd3-4291-4e91-a556-ea992c12b165" Title="BO_Nombre Classe" Url="html/05300763-4fec-0e86-7a14-7ae9c8afd322.htm">
+    <HelpTOCNode Id="69b4e5cb-0a8e-4e12-9325-35784b4104df" Title="BO_Nombre Classe" Url="html/05300763-4fec-0e86-7a14-7ae9c8afd322.htm">
       <HelpTOCNode Title="BO_Nombre Constructeur " Url="html/716fcd2d-8f9f-dbae-7d05-17a08ebd251b.htm" />
-      <HelpTOCNode Id="648719a8-0789-43b8-a5b2-247cf21d6db9" Title="BO_Nombre Propri&#233;t&#233;s" Url="html/15698062-7e2f-b19b-736d-94d417f3f32d.htm">
+      <HelpTOCNode Id="0f902b90-1df2-435d-8342-a2749b595d54" Title="BO_Nombre Propri&#233;t&#233;s" Url="html/15698062-7e2f-b19b-736d-94d417f3f32d.htm">
         <HelpTOCNode Title="Nombre Propri&#233;t&#233; " Url="html/1f92788a-e38a-f8bd-14a4-3bf908139313.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="BO_Nombre M&#233;thodes" Url="html/bc9a6699-a0b9-ecab-3804-be0fc237aa47.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="ca0f924a-ab65-40d4-bdb1-74a5321717ad" Title="Consommable Classe" Url="html/03c3ebed-73ab-8636-7e8a-f269c6981caa.htm">
+    <HelpTOCNode Id="f4d553fb-9337-45d9-a748-e75595192b61" Title="Consommable Classe" Url="html/03c3ebed-73ab-8636-7e8a-f269c6981caa.htm">
       <HelpTOCNode Title="Consommable Constructeur " Url="html/88a2314d-1b3f-7eb2-3005-54b156cfb1d3.htm" />
       <HelpTOCNode Title="Consommable M&#233;thodes" Url="html/920d481e-60da-baf6-0afa-30a8d2ef1d64.htm" />
     </HelpTOCNode>

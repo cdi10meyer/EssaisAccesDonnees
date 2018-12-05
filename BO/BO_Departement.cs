@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    public class BO_Departement: Consommable
+    public class BO_Departement
     {
         #region "Propriétés d'instance"
         public int Deptno { get; set; }
@@ -14,6 +14,8 @@ namespace BO
         public string Dname { get; set; }
 
         public string Loc { get; set; }
+
+        public List<BO_Employe> Employes { get; set; }
         #endregion "Propriétés d'instance"
 
         #region "Constructeurs"
@@ -26,9 +28,13 @@ namespace BO
 
         public BO_Departement()
         {
-
         }
         #endregion "Constructeurs"
+
+        public void CreateListeEmploye(List<BO_Employe> employes)
+        {
+            this.Employes = employes;
+        }
 
         #region "Méthodes substituées"
         public override string ToString()

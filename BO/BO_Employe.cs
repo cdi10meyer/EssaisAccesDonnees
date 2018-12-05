@@ -9,7 +9,7 @@ namespace BO
     /// <summary>
     /// 
     /// </summary>
-    public class BO_Employe: Consommable, IComparable<BO_Employe>
+    public class BO_Employe: IComparable<BO_Employe>
     {
         #region "Propriétés d'instance"
 
@@ -28,7 +28,7 @@ namespace BO
         /// <summary>
         /// 
         /// </summary>
-        public BO_Departement Departement { get; set; }
+        public int Deptno { get; set; }
 
         /// <summary>
         /// 
@@ -55,8 +55,7 @@ namespace BO
         {
             this.Empno = empno;
             this.Nom = nom.ToUpper();
-            this.Departement = new BO_Departement();
-            this.Departement.Deptno = deptno;
+            this.Deptno = deptno;
             this.Job = job.ToUpper();
             this.Salaire = salaire;
         }
@@ -76,7 +75,7 @@ namespace BO
         /// <returns></returns>
         public override string ToString()
         {
-            return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Departement.Deptno} ";
+            return $"Nom: {this.Nom} Poste: {this.Job} Salaire: {this.Salaire} N° Departement: {this.Deptno} ";
         }
         #endregion "Méthodes substituées"
 

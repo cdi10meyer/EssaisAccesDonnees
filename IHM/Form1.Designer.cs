@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxDept = new System.Windows.Forms.ComboBox();
+            this.buttonGetAllDept = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEmp = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -51,19 +51,19 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonUpdateEmp = new System.Windows.Forms.Button();
+            this.bindingSourceEmp = new System.Windows.Forms.BindingSource(this.components);
+            this.bindingSourceDept = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).BeginInit();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDept)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -80,6 +80,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(772, 348);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 335);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "label4";
             // 
             // tableLayoutPanel2
             // 
@@ -99,8 +109,8 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.comboBoxDept);
+            this.panel2.Controls.Add(this.buttonGetAllDept);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -117,25 +127,25 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Choix du département";
             // 
-            // comboBox1
+            // comboBoxDept
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(272, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxDept.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comboBoxDept.FormattingEnabled = true;
+            this.comboBoxDept.Location = new System.Drawing.Point(272, 19);
+            this.comboBoxDept.Name = "comboBoxDept";
+            this.comboBoxDept.Size = new System.Drawing.Size(199, 21);
+            this.comboBoxDept.TabIndex = 0;
             // 
-            // button1
+            // buttonGetAllDept
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Location = new System.Drawing.Point(272, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 21);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tous les Départements";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonGetAllDept.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonGetAllDept.Location = new System.Drawing.Point(272, 57);
+            this.buttonGetAllDept.Name = "buttonGetAllDept";
+            this.buttonGetAllDept.Size = new System.Drawing.Size(199, 21);
+            this.buttonGetAllDept.TabIndex = 1;
+            this.buttonGetAllDept.Text = "Tous les Départements";
+            this.buttonGetAllDept.UseVisualStyleBackColor = true;
+            this.buttonGetAllDept.Click += new System.EventHandler(this.buttonGetAllDept_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -155,7 +165,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Controls.Add(this.dataGridViewEmp);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -164,32 +174,22 @@
             this.panel1.Size = new System.Drawing.Size(374, 219);
             this.panel1.TabIndex = 0;
             // 
-            // label4
+            // dataGridViewEmp
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 335);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "label4";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 41);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(353, 175);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridViewEmp.AllowUserToAddRows = false;
+            this.dataGridViewEmp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.dataGridViewEmp.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewEmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEmp.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewEmp.Location = new System.Drawing.Point(13, 41);
+            this.dataGridViewEmp.MultiSelect = false;
+            this.dataGridViewEmp.Name = "dataGridViewEmp";
+            this.dataGridViewEmp.ReadOnly = true;
+            this.dataGridViewEmp.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dataGridViewEmp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEmp.Size = new System.Drawing.Size(353, 175);
+            this.dataGridViewEmp.TabIndex = 1;
             // 
             // label3
             // 
@@ -215,7 +215,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.tableLayoutPanel3);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.buttonUpdateEmp);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(383, 3);
             this.panel4.Name = "panel4";
@@ -322,24 +322,24 @@
             this.textBox1.Size = new System.Drawing.Size(161, 20);
             this.textBox1.TabIndex = 9;
             // 
-            // button2
+            // buttonUpdateEmp
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Location = new System.Drawing.Point(91, 145);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Modifier";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonUpdateEmp.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.buttonUpdateEmp.Location = new System.Drawing.Point(91, 145);
+            this.buttonUpdateEmp.Name = "buttonUpdateEmp";
+            this.buttonUpdateEmp.Size = new System.Drawing.Size(199, 23);
+            this.buttonUpdateEmp.TabIndex = 4;
+            this.buttonUpdateEmp.Text = "Modifier";
+            this.buttonUpdateEmp.UseVisualStyleBackColor = true;
+            this.buttonUpdateEmp.Click += new System.EventHandler(this.buttonUpdateEmp_Click);
             // 
-            // bindingSource1
+            // bindingSourceEmp
             // 
-            this.bindingSource1.CurrentItemChanged += new System.EventHandler(this.bindingSource1_CurrentItemChanged);
+            this.bindingSourceEmp.CurrentItemChanged += new System.EventHandler(this.bindingSourceEmp_CurrentItemChanged);
             // 
-            // bindingSource2
+            // bindingSourceDept
             // 
-            this.bindingSource2.CurrentItemChanged += new System.EventHandler(this.bindingSource2_CurrentItemChanged);
+            this.bindingSourceDept.CurrentItemChanged += new System.EventHandler(this.bindingSourceDept_CurrentItemChanged);
             // 
             // Form1
             // 
@@ -351,7 +351,6 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -359,12 +358,12 @@
             this.panel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmp)).EndInit();
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceEmp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceDept)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -372,9 +371,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox comboBoxDept;
+        private System.Windows.Forms.Button buttonGetAllDept;
+        private System.Windows.Forms.DataGridView dataGridViewEmp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -388,14 +387,14 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.BindingSource bindingSourceEmp;
+        private System.Windows.Forms.Button buttonUpdateEmp;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.BindingSource bindingSource2;
+        private System.Windows.Forms.BindingSource bindingSourceDept;
     }
 }
 

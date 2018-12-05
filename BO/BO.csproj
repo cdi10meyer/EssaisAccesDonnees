@@ -44,10 +44,6 @@
   <ItemGroup>
     <Compile Include="BO_Departement.cs" />
     <Compile Include="BO_Employe.cs" />
-    <Compile Include="BO_ListeDepartements.cs" />
-    <Compile Include="BO_ListeEmployes.cs" />
-    <Compile Include="BO_Nombre.cs" />
-    <Compile Include="Consommable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

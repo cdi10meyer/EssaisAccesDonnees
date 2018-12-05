@@ -14,153 +14,149 @@ namespace IHM
 {
     public partial class Form1 : Form
     {
-        private BO_Departement RecordedDept=new BO_Departement();
-        private BO_Employe RecordedEmploye=null;
+        private BO_Departement _RecordedDept;
+        private BO_Employe _RecordedEmploye;
 
         #region "Constructeurs"
         public Form1()
         {
             InitializeComponent();
+            label4.Text = string.Empty;
+            _RecordedDept = new BO_Departement();
+            _RecordedEmploye = new BO_Employe();
+
+            this.FillingComboBox();
+            if (bindingSourceDept.Current != null)
+            {
+                _RecordedDept = (BO_Departement)bindingSourceDept.Current;
+            }
+            this.FillingDataGridView(_RecordedDept.Deptno);
         }
         #endregion "Constructeurs"
 
-        #region "Méthodes evenementielles"
-        private void Form1_Load(object sender, EventArgs e)
+        #region "Méthodes propres à la classe"
+        private void FillingComboBox()
         {
-            this.RemplissageComboBox();
-            if (bindingSource2.Current != null)
-            {
-                RecordedDept = (BO_Departement)bindingSource2.Current;
-            }
-            this.RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
-
-            //label4.Text = BLL_OAI.SqlMessage;
+            bindingSourceDept.DataSource = BLL_OAI.GetAllDept();
+            comboBoxDept.DataSource = bindingSourceDept;
+            comboBoxDept.ValueMember = "Deptno";
+            comboBoxDept.DisplayMember = "Dname";
         }
 
-        private void bindingSource2_CurrentItemChanged(object sender, EventArgs e)
+        private void FillingDataGridView(int deptno)
         {
-            if (bindingSource2.Current != null)
+            List<BO_Employe> employes;
+            string titre = string.Empty;
+            if (deptno != 0)
             {
-                RecordedDept = (BO_Departement)bindingSource2.Current;
-                int deptno = RecordedDept.Deptno;
-                //RecordedDept = BLL_OAI.GetDeptByDeptno(deptno);
-                if (deptno != 0)
-                {
-                    this.RemplissageDataGridView(deptno, dataGridView1);
-
-                }
-
-            }
-
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            RecordedDept = new BO_Departement();
-            RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
-            RecordedDept.Deptno =0;
-        }
-
-        private void bindingSource1_CurrentItemChanged(object sender, EventArgs e)
-        {
-            if (bindingSource1.Current != null)
-            {
-                RecordedEmploye = (BO_Employe)bindingSource1.Current;
-                textBox1.Text = RecordedEmploye.Departement.Dname;
-                textBox2.Text = RecordedEmploye.Nom;
-                textBox3.Text = RecordedEmploye.Job;
-                textBox4.Text = RecordedEmploye.Salaire.ToString();
-                textBox2.Enabled = true;
-                button2.Enabled = true;
+                employes = BLL_OAI.GetEmpByDeptno(deptno);
+                titre = BLL_OAI.GetDeptByDeptno(deptno).Dname;
             }
             else
             {
-                RecordedEmploye = null;
+                employes = BLL_OAI.GetAllEmp();
+                titre = "TOUS";
+            }
+            label2.Text = titre;
+            employes.Sort();
+            bindingSourceEmp.DataSource = employes;
+            dataGridViewEmp.DataSource = bindingSourceEmp;
+            this.ModelingByDataGridView();
+        }
+
+
+        private void ModelingByDataGridView()
+        {
+            dataGridViewEmp.Columns["Deptno"].Visible = false;
+            dataGridViewEmp.Columns["Empno"].Visible = false;
+            label3.Text = $"Nbre employé(s): {dataGridViewEmp.RowCount}";
+            dataGridViewEmp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            int totalRowHeight = dataGridViewEmp.ColumnHeadersHeight;
+
+            foreach (DataGridViewRow row in dataGridViewEmp.Rows)
+            {
+                totalRowHeight += row.Height;
+            }
+
+            dataGridViewEmp.Height = totalRowHeight;
+        }
+
+        #endregion "Méthodes propres à la classe"
+
+        #region "Méthodes evenementielles"
+
+        private void bindingSourceDept_CurrentItemChanged(object sender, EventArgs e)
+        {
+            if (bindingSourceDept.Current != null)
+            {
+                _RecordedDept = (BO_Departement)bindingSourceDept.Current;
+
+                this.FillingDataGridView(_RecordedDept.Deptno);
+            }
+
+        }
+        private void buttonGetAllDept_Click(object sender, EventArgs e)
+        {
+            _RecordedDept = new BO_Departement();
+            FillingDataGridView(_RecordedDept.Deptno);
+        }
+
+        private void bindingSourceEmp_CurrentItemChanged(object sender, EventArgs e)
+        {
+            if (bindingSourceEmp.Current != null)
+            {
+                _RecordedEmploye = (BO_Employe)bindingSourceEmp.Current;
+                textBox1.Text = _RecordedDept.Dname;
+                textBox2.Text = _RecordedEmploye.Nom;
+                textBox3.Text = _RecordedEmploye.Job;
+                textBox4.Text = _RecordedEmploye.Salaire.ToString();
+                textBox2.Enabled = true;
+                buttonUpdateEmp.Enabled = true;
+            }
+            else
+            {
+                _RecordedEmploye = null;
                 textBox1.Text = string.Empty;
                 textBox2.Text = string.Empty;
                 textBox3.Text = string.Empty;
                 textBox4.Text = string.Empty;
                 textBox2.Enabled = false;
-                button2.Enabled = false;
-                if (bindingSource2.Current != null)
+                buttonUpdateEmp.Enabled = false;
+                if (bindingSourceDept.Current != null)
                 {
-                    textBox1.Text = RecordedDept.Dname;
+                    textBox1.Text = _RecordedDept.Dname;
                 }
 
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            RecordedEmploye = (BO_Employe)bindingSource1.Current;
-            string oldName = RecordedEmploye.Nom;
-            string newEname = textBox2.Text.ToUpper();
-            BO_Nombre resultat= new BO_Nombre();
-            RecordedEmploye.Nom= newEname;
-            
-            string message = $"{oldName} => {newEname}";
-            
-            DialogResult dialogResult = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
-            if (dialogResult == DialogResult.Yes)
-            {
-                resultat = BLL_OAI.UpdateEmp(RecordedEmploye);
-            }
 
-            if (resultat != null)
+        private void buttonUpdateEmp_Click(object sender, EventArgs e)
+        {
+            if (bindingSourceEmp.Current != null)
             {
-                this.RemplissageDataGridView(RecordedDept.Deptno, dataGridView1);
+                _RecordedEmploye = (BO_Employe)bindingSourceEmp.Current;
+                string oldName = _RecordedEmploye.Nom;
+                string newName = textBox2.Text.ToUpper();
+                int resultat = 0;
+                _RecordedEmploye.Nom = newName;
+
+                string message = $"{oldName} => {newName}";
+
+                DialogResult dialogResult = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    resultat = BLL_OAI.UpdateEmp(_RecordedEmploye);
+                }
+
+                if (resultat != 0)
+                {
+                    this.FillingDataGridView(_RecordedDept.Deptno);
+                }
+
             }
         }
         #endregion "Méthodes evenementielles"
-
-        #region "Méthodes propres à la classe"
-        private void RemplissageComboBox()
-        {
-            bindingSource2.DataSource = BLL_OAI.GetAllDept().Departements;
-            comboBox1.DataSource = bindingSource2;
-            comboBox1.ValueMember = "Deptno";
-            comboBox1.DisplayMember = "Dname";
-            //label4.Text = BLL_OAI.SqlMessage;
-        }
-
-        private void RemplissageDataGridView(int deptno, DataGridView datagridview)
-        {
-            BO_ListeEmployes employes;
-            if (deptno != 0)
-            {
-                employes = BLL_OAI.GetEmpByDeptno(deptno);
-                label2.Text = $"{BLL_OAI.GetDeptByDeptno(deptno).Dname}";
-            }
-            else
-            {
-                employes = BLL_OAI.GetAllEmp();
-                label2.Text = $"TOUS";
-            }
-            employes.Employes.Sort();
-            bindingSource1.DataSource = employes.Employes;
-            datagridview.DataSource = bindingSource1;
-            this.ModelingByDataGridView(datagridview);
-            //label4.Text = BLL_OAI.SqlMessage;
-        }
-
-
-        private void ModelingByDataGridView(DataGridView datagridview)
-        {
-            datagridview.Columns["Departement"].Visible = false;
-            //datagridview.Columns.Remove(dataGridView1.Columns["Departement"]);
-            label3.Text = $"Nbre employé(s): {datagridview.RowCount}";
-            datagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            int totalRowHeight = dataGridView1.ColumnHeadersHeight;
-
-            foreach (DataGridViewRow row in datagridview.Rows)
-            {
-                totalRowHeight += row.Height;
-            }
-
-            dataGridView1.Height = totalRowHeight;
-        }
-
-        #endregion "Méthodes propres à la classe"
-
 
     }
 
